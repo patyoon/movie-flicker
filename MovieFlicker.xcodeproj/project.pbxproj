@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		F6CF53FB1DB32D4800118150 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CF53FA1DB32D4800118150 /* AppDelegate.swift */; };
-		F6CF53FD1DB32D4800118150 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CF53FC1DB32D4800118150 /* ViewController.swift */; };
 		F6CF54001DB32D4800118150 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6CF53FE1DB32D4800118150 /* Main.storyboard */; };
 		F6CF54021DB32D4800118150 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6CF54011DB32D4800118150 /* Assets.xcassets */; };
 		F6CF54051DB32D4800118150 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6CF54031DB32D4800118150 /* LaunchScreen.storyboard */; };
+		F6CF540F1DB32E0C00118150 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CF540E1DB32E0C00118150 /* MoviesViewController.swift */; };
+		F6CF54121DB3442B00118150 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CF54111DB3442B00118150 /* MovieCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F6CF53F71DB32D4800118150 /* MovieFlicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieFlicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6CF53FA1DB32D4800118150 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F6CF53FC1DB32D4800118150 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F6CF53FF1DB32D4800118150 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F6CF54011DB32D4800118150 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F6CF54041DB32D4800118150 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F6CF54061DB32D4800118150 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6CF540E1DB32E0C00118150 /* MoviesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoviesViewController.swift; path = ../MoviesViewController.swift; sourceTree = "<group>"; };
+		F6CF54111DB3442B00118150 /* MovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +56,31 @@
 		F6CF53F91DB32D4800118150 /* MovieFlicker */ = {
 			isa = PBXGroup;
 			children = (
+				F6CF54131DB3443400118150 /* View Controllers */,
+				F6CF54101DB3440800118150 /* Views */,
 				F6CF53FA1DB32D4800118150 /* AppDelegate.swift */,
-				F6CF53FC1DB32D4800118150 /* ViewController.swift */,
 				F6CF53FE1DB32D4800118150 /* Main.storyboard */,
 				F6CF54011DB32D4800118150 /* Assets.xcassets */,
 				F6CF54031DB32D4800118150 /* LaunchScreen.storyboard */,
 				F6CF54061DB32D4800118150 /* Info.plist */,
 			);
 			path = MovieFlicker;
+			sourceTree = "<group>";
+		};
+		F6CF54101DB3440800118150 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F6CF54111DB3442B00118150 /* MovieCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		F6CF54131DB3443400118150 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F6CF540E1DB32E0C00118150 /* MoviesViewController.swift */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +155,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6CF53FD1DB32D4800118150 /* ViewController.swift in Sources */,
 				F6CF53FB1DB32D4800118150 /* AppDelegate.swift in Sources */,
+				F6CF540F1DB32E0C00118150 /* MoviesViewController.swift in Sources */,
+				F6CF54121DB3442B00118150 /* MovieCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

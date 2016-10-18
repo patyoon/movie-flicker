@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE4220A597F7E5B39FA23380 /* Pods_MovieFlicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4F6116B00C55E37D7918A4 /* Pods_MovieFlicker.framework */; };
+		F67D143C1DB34AE800953509 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67D143B1DB34AE800953509 /* MovieDetailsViewController.swift */; };
+		F68C85861DB4BFE9006D1B79 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68C85851DB4BFE9006D1B79 /* MessageView.swift */; };
 		F6CF53FB1DB32D4800118150 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CF53FA1DB32D4800118150 /* AppDelegate.swift */; };
 		F6CF54001DB32D4800118150 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6CF53FE1DB32D4800118150 /* Main.storyboard */; };
 		F6CF54021DB32D4800118150 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6CF54011DB32D4800118150 /* Assets.xcassets */; };
@@ -16,6 +19,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D4F6116B00C55E37D7918A4 /* Pods_MovieFlicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieFlicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F96B77ADEADCDA1D5B9A1F5 /* Pods-MovieFlicker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieFlicker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovieFlicker/Pods-MovieFlicker.debug.xcconfig"; sourceTree = "<group>"; };
+		B5074CA5477167F7B31C4720 /* Pods-MovieFlicker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieFlicker.release.xcconfig"; path = "Pods/Target Support Files/Pods-MovieFlicker/Pods-MovieFlicker.release.xcconfig"; sourceTree = "<group>"; };
+		F67D143B1DB34AE800953509 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
+		F68C85851DB4BFE9006D1B79 /* MessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		F6CF53F71DB32D4800118150 /* MovieFlicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieFlicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6CF53FA1DB32D4800118150 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6CF53FF1DB32D4800118150 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -31,17 +39,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE4220A597F7E5B39FA23380 /* Pods_MovieFlicker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9ABFFDC2288612DB603CA3B4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7F96B77ADEADCDA1D5B9A1F5 /* Pods-MovieFlicker.debug.xcconfig */,
+				B5074CA5477167F7B31C4720 /* Pods-MovieFlicker.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F6CF53EE1DB32D4800118150 = {
 			isa = PBXGroup;
 			children = (
 				F6CF53F91DB32D4800118150 /* MovieFlicker */,
 				F6CF53F81DB32D4800118150 /* Products */,
+				9ABFFDC2288612DB603CA3B4 /* Pods */,
+				FA2A3F505810C1BBFF4A6C03 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +90,7 @@
 		F6CF54101DB3440800118150 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F68C85851DB4BFE9006D1B79 /* MessageView.swift */,
 				F6CF54111DB3442B00118150 /* MovieCell.swift */,
 			);
 			name = Views;
@@ -79,8 +100,17 @@
 			isa = PBXGroup;
 			children = (
 				F6CF540E1DB32E0C00118150 /* MoviesViewController.swift */,
+				F67D143B1DB34AE800953509 /* MovieDetailsViewController.swift */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		FA2A3F505810C1BBFF4A6C03 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5D4F6116B00C55E37D7918A4 /* Pods_MovieFlicker.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -90,9 +120,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F6CF54091DB32D4800118150 /* Build configuration list for PBXNativeTarget "MovieFlicker" */;
 			buildPhases = (
+				B5637ED6517A7CF80C3D0B4C /* [CP] Check Pods Manifest.lock */,
 				F6CF53F31DB32D4800118150 /* Sources */,
 				F6CF53F41DB32D4800118150 /* Frameworks */,
 				F6CF53F51DB32D4800118150 /* Resources */,
+				6305F55B519A9B3C19B99AFF /* [CP] Embed Pods Frameworks */,
+				C01ED2BC0BF14B40BF3013AF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -150,14 +183,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6305F55B519A9B3C19B99AFF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MovieFlicker/Pods-MovieFlicker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B5637ED6517A7CF80C3D0B4C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C01ED2BC0BF14B40BF3013AF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MovieFlicker/Pods-MovieFlicker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F6CF53F31DB32D4800118150 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F67D143C1DB34AE800953509 /* MovieDetailsViewController.swift in Sources */,
 				F6CF53FB1DB32D4800118150 /* AppDelegate.swift in Sources */,
 				F6CF540F1DB32E0C00118150 /* MoviesViewController.swift in Sources */,
 				F6CF54121DB3442B00118150 /* MovieCell.swift in Sources */,
+				F68C85861DB4BFE9006D1B79 /* MessageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +284,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -251,6 +335,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -278,9 +363,11 @@
 		};
 		F6CF540A1DB32D4800118150 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F96B77ADEADCDA1D5B9A1F5 /* Pods-MovieFlicker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MovieFlicker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.patyoon.MovieFlicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -290,9 +377,11 @@
 		};
 		F6CF540B1DB32D4800118150 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5074CA5477167F7B31C4720 /* Pods-MovieFlicker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MovieFlicker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.patyoon.MovieFlicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -319,6 +408,7 @@
 				F6CF540B1DB32D4800118150 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

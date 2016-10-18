@@ -1,3 +1,4 @@
+
 //
 //  MoviesViewController.swift
 //  MovieFlicker
@@ -8,6 +9,7 @@
 
 import UIKit
 import AFNetworking
+import MBProgressHUD
 
 class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -15,13 +17,10 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
 
   var movies: [NSDictionary]?
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    tableView.dataSource = self
-    tableView.delegate = self
-
+  func refreshControlAction(refreshControl: UIRefreshControl) {
     let apiKey = "7bbe2a9e6e9f81468301df8b5bbdf478"
     let url = URL(string:"https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")
+
     let request = URLRequest(url: url!)
     let session = URLSession(
       configuration: URLSessionConfiguration.default,
@@ -30,12 +29,55 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     )
 
     let task : URLSessionDataTask = session.dataTask(with: request,completionHandler: { (dataOrNil, response, error) in
+      if error != nil {
+        MessageView.showInParent(parentView: self.view, text: "Network Error", duration: 10.0)
+      }
+
       if let data = dataOrNil {
         if let responseDictionary = try! JSONSerialization.jsonObject(with: data, options:[]) as? NSDictionary {
-          NSLog("response: \(responseDictionary)")
           self.movies = responseDictionary["results"] as? [NSDictionary]
           self.tableView.reloadData()
         }
+      }
+      refreshControl.endRefreshing()
+    });
+    task.resume()
+  }
+
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    tableView.dataSource = self
+    tableView.delegate = self
+
+    let refreshControl = UIRefreshControl()
+    refreshControl.addTarget(self, action: #selector(refreshControlAction(refreshControl:)), for: UIControlEvents.valueChanged)
+    tableView.insertSubview(refreshControl, at: 0)
+
+    let apiKey = "7bbe2a9e6e9f81468301df8b5bbdf478"
+    let url = URL(string:"https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")
+    let request = URLRequest(url: url!)
+
+    let session = URLSession(
+      configuration: URLSessionConfiguration.default,
+      delegate:nil,
+      delegateQueue:OperationQueue.main
+    )
+    MBProgressHUD.showAdded(to: self.view, animated: true)
+
+    let task : URLSessionDataTask = session.dataTask(with: request,completionHandler: { (dataOrNil, response, error) in
+      MBProgressHUD.hide(for: self.view, animated: true)
+
+      if error != nil {
+        MessageView.showInParent(parentView: self.view, text: "Network Error", duration: 10.0)
+      }
+
+      if let data = dataOrNil {
+        if let responseDictionary = try! JSONSerialization.jsonObject(with: data, options:[]) as? NSDictionary {
+          self.movies = responseDictionary["results"] as? [NSDictionary]
+          self.tableView.reloadData()
+        }
+      } else {
       }
     });
     task.resume()
@@ -59,24 +101,26 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     let movie = movies![indexPath.row]
     let title = movie["title"] as! String
     let overview = movie["overview"] as! String
-    let posterPath = movie["poster_path"] as! String
-
     let baseUrl = "http://image.tmdb.org/t/p/w500"
-    let imageUrl = URL(string:baseUrl + posterPath)
+    if let posterPath = movie["poster_path"] as? String {
+      let imageUrl = URL(string:baseUrl + posterPath)
+      cell.posterView.setImageWith(imageUrl!)
+    }
+
 
     cell.titleLabel.text = title
     cell.overviewLabel.text = overview
     return cell
   }
 
-  /*
-   // MARK: - Navigation
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    let detailsViewController = segue.destination as! MovieDetailsViewController
+    var indexPath = tableView.indexPath(for: sender as! UITableViewCell)
+    detailsViewController.movie = self.movies![indexPath!.row]
+  }
 
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
-   }
-   */
-
+  func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated:true)
+  }
+  
 }
